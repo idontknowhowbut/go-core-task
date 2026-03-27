@@ -1,6 +1,7 @@
 package main
 
 import (
+	"crypto/sha256"
 	"fmt"
 	"reflect"
 )
@@ -43,11 +44,14 @@ func main() {
 
 	fmt.Println(string(saltedSlice))
 
+	hash := sha256.Sum256([]byte(string(saltedSlice)))
+	fmt.Printf("%x\n", hash)
+
 }
 
 func insertSalt(s []rune, salt string) []rune {
 	mid := len(s) / 2
-	res := make([]rune, len(s)+len([]rune(salt)))
+	res := make([]rune, 0, len(s)+len([]rune(salt)))
 	res = append(res, s[:mid]...)
 	res = append(res, []rune(salt)...)
 	res = append(res, s[mid:]...)
