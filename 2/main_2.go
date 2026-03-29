@@ -11,19 +11,23 @@ func main() {
 	for i := range s {
 		s[i] = rand.IntN(100)
 	}
-
+	fmt.Printf("Created slice of size %d:\n", len(s))
 	fmt.Println(s)
 
 	s = sliceExample(s)
-
+	fmt.Println("Only even numbers are left in slice:")
 	fmt.Println(s)
 
 	m := copySlice(s)
 	m = addElements(m, 999)
+
+	fmt.Println("Slice copied and value 999 added to new slice.\nOriginal slice:")
 	fmt.Println(s)
+	fmt.Println("New slice:")
 	fmt.Println(m)
 
-	m = removeElement(m, 50)
+	m = removeElement(m, len(m)-1)
+	fmt.Println("Last element removed:")
 	fmt.Println(m)
 }
 
