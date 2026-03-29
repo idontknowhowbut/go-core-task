@@ -42,7 +42,6 @@ func (m StringIntMap) Add(key string, value int) {
 
 func (m StringIntMap) Remove(key string) {
 	delete(m, key)
-
 }
 
 func (m StringIntMap) Copy() map[string]int {
