@@ -8,11 +8,11 @@ func main() {
 	slice1 := []string{"apple", "banana", "cherry", "date", "43", "lead", "gno1"}
 	slice2 := []string{"banana", "date", "fig"}
 
-	sliceRes := SliceDiff(slice1, slice2)
+	sliceRes := sliceDiff(slice1, slice2)
 	fmt.Println(sliceRes)
 }
 
-func SliceDiff(sliceA []string, sliceB []string) []string {
+func sliceDiff(sliceA []string, sliceB []string) []string {
 	m := make(map[string]struct{})
 
 	for _, s := range sliceB {
